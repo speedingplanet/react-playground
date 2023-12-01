@@ -2,6 +2,7 @@ import { useState } from 'react';
 import ButtonEvents from './ButtonEvents.jsx';
 import Greeter from './Greeter.jsx';
 import StaticGreeter from './StaticGreeter.jsx';
+import GreeterWithButton from './GreeterWithButton.jsx';
 import ToggleVisibility from './ToggleVisibility.jsx';
 import './App.css';
 import Calculator from './Calculator.jsx';
@@ -13,6 +14,7 @@ function App() {
 		toggleVisibility: true,
 		staticGreeter: true,
 		calculator: true,
+		greeterWithButton: true,
 	});
 
 	function universalToggle(divName) {
@@ -44,6 +46,9 @@ function App() {
 							Button Events
 						</li>
 						<li onClick={() => universalToggle('greeter')}>Greeter</li>
+						<li onClick={() => universalToggle('greeterWithButton')}>
+							Greeter With Button
+						</li>
 						<li onClick={() => universalToggle('staticGreeter')}>
 							Static Greeter
 						</li>
@@ -61,6 +66,9 @@ function App() {
 					</div>
 					<div hidden={visibilityState.greeter}>
 						<Greeter></Greeter>
+					</div>
+					<div hidden={visibilityState.greeterWithButton}>
+						<GreeterWithButton />
 					</div>
 					<div hidden={visibilityState.staticGreeter}>
 						<StaticGreeter
