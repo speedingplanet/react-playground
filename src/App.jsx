@@ -4,6 +4,7 @@ import Greeter from './Greeter.jsx';
 import StaticGreeter from './StaticGreeter.jsx';
 import ToggleVisibility from './ToggleVisibility.jsx';
 import './App.css';
+import Calculator from './Calculator.jsx';
 
 function App() {
 	const [visibilityState, setVisibilityState] = useState({
@@ -11,6 +12,7 @@ function App() {
 		greeter: true,
 		toggleVisibility: true,
 		staticGreeter: true,
+		calculator: true,
 	});
 
 	function universalToggle(divName) {
@@ -48,6 +50,9 @@ function App() {
 						<li onClick={() => universalToggle('toggleVisibility')}>
 							Toggle Visibility
 						</li>
+						<li onClick={() => universalToggle('calculator')}>
+							Calculator lab
+						</li>
 					</ul>
 				</nav>
 				<div className="container">
@@ -65,6 +70,9 @@ function App() {
 					</div>
 					<div hidden={visibilityState.toggleVisibility}>
 						<ToggleVisibility />
+					</div>
+					<div hidden={visibilityState.calculator}>
+						<Calculator />
 					</div>
 				</div>
 			</section>
