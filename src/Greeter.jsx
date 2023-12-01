@@ -17,6 +17,7 @@ function Greeter({ firstName, lastName }) {
 	// div>label+input:text+p
 	return (
 		<div>
+			<h3>Greeter</h3>
 			<label htmlFor="user-name">Please enter your name:</label>
 			<input
 				type="text"

@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import ButtonEvents from './ButtonEvents.jsx';
 import Greeter from './Greeter.jsx';
+import ToggleVisibility from './ToggleVisibility.jsx';
+import './App.css';
 
 function App() {
 	const [visibilityState, setVisibilityState] = useState({
-		divOne: true,
-		divTwo: true,
-		divThree: true,
+		buttonEvents: true,
+		greeter: true,
+		toggleVisibility: true,
 	});
 
 	function universalToggle(divName) {
@@ -31,26 +33,28 @@ function App() {
 			<header>
 				<h1>Our React Playground</h1>
 			</header>
-			<section>
-				<div>
-					<button onClick={() => universalToggle('divOne')}>
-						Show Div One
-					</button>
-					<button onClick={() => universalToggle('divTwo')}>
-						Show Div Two
-					</button>
-					<button onClick={() => universalToggle('divThree')}>
-						Show Div Three
-					</button>
-				</div>
-				<div hidden={visibilityState.divOne}>
-					<p>Div One</p>
-				</div>
-				<div hidden={visibilityState.divTwo}>
-					<p>Div Two</p>
-				</div>
-				<div hidden={visibilityState.divThree}>
-					<p>Div Three</p>
+			<section className="main-app">
+				<nav>
+					<ul>
+						<li onClick={() => universalToggle('buttonEvents')}>
+							Button Events
+						</li>
+						<li onClick={() => universalToggle('greeter')}>Greeter</li>
+						<li onClick={() => universalToggle('toggleVisibility')}>
+							Toggle Visibility
+						</li>
+					</ul>
+				</nav>
+				<div className="container">
+					<div hidden={visibilityState.buttonEvents}>
+						<ButtonEvents></ButtonEvents>
+					</div>
+					<div hidden={visibilityState.greeter}>
+						<Greeter></Greeter>
+					</div>
+					<div hidden={visibilityState.toggleVisibility}>
+						<ToggleVisibility />
+					</div>
 				</div>
 			</section>
 		</main>

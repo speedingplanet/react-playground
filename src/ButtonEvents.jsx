@@ -19,6 +19,7 @@ function ButtonEvents() {
 
 	return (
 		<div>
+			<h3>Button Events</h3>
 			<button onClick={handleClick}>Click me</button>
 			<p>You clicked on the button {clickCount} times.</p>
 		</div>
