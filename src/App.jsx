@@ -6,19 +6,24 @@ function App() {
 	const [visibilityState, setVisibilityState] = useState({
 		divOne: 'hidden',
 		divTwo: 'hidden',
+		divThree: 'hidden',
 	});
 
-	function handleShowDivOne() {
-		setVisibilityState({
-			divOne: 'visible',
-			divTwo: 'hidden',
-		});
-	}
-	function handleShowDivTwo() {
-		setVisibilityState({
-			divOne: 'hidden',
-			divTwo: 'visible',
-		});
+	function universalToggle(divName) {
+		// Shallow copy of visibilityState, because we shouldn't modify it directly
+		let nextVisibilityState = { ...visibilityState };
+
+		// Hide everything
+		for (let div in nextVisibilityState) {
+			nextVisibilityState[div] = 'hidden';
+		}
+
+		// Show only the element passed as an argument
+		nextVisibilityState[divName] = 'visible';
+
+		// Overwrite visibilityState with nextVisibilityState
+		// Also re-renders
+		setVisibilityState(nextVisibilityState);
 	}
 
 	return (
@@ -29,8 +34,11 @@ function App() {
 			<section>
 				<div>
 					{/* <button onClick={handleButtonClick}>Toggle visibility</button> */}
-					<button onClick={handleShowDivOne}>Show Div One</button>
-					<button onClick={handleShowDivTwo}>Show Div Two</button>
+					<button onClick={() => valeriaToggle('divOne')}>Show Div One</button>
+					<button onClick={() => valeriaToggle('divTwo')}>Show Div Two</button>
+					<button onClick={() => valeriaToggle('divThree')}>
+						Show Div Three
+					</button>
 				</div>
 				{/* <div hidden> */}
 				<div style={{ visibility: visibilityState.divOne }}>
@@ -38,6 +46,9 @@ function App() {
 				</div>
 				<div style={{ visibility: visibilityState.divTwo }}>
 					<p>Div Two</p>
+				</div>
+				<div style={{ visibility: visibilityState.divThree }}>
+					<p>Div Three</p>
 				</div>
 			</section>
 		</main>
