@@ -34,9 +34,13 @@ function App() {
 			<section>
 				<div>
 					{/* <button onClick={handleButtonClick}>Toggle visibility</button> */}
-					<button onClick={() => valeriaToggle('divOne')}>Show Div One</button>
-					<button onClick={() => valeriaToggle('divTwo')}>Show Div Two</button>
-					<button onClick={() => valeriaToggle('divThree')}>
+					<button onClick={() => universalToggle('divOne')}>
+						Show Div One
+					</button>
+					<button onClick={() => universalToggle('divTwo')}>
+						Show Div Two
+					</button>
+					<button onClick={() => universalToggle('divThree')}>
 						Show Div Three
 					</button>
 				</div>
